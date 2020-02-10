@@ -7,7 +7,8 @@ describe('JO | Search Update', ()=>{
     beforeEach(function(done){
         done();
     }, 10000);
-    it('should toggle between the search and clear search btns, based on focus or blur state resp.', (done)=>{
+    
+    xit('should toggle between the search and clear search btns, based on focus or blur state resp.', (done)=>{
         browser.ignoreSynchronization = true;
         const width = 500;
         const height = 1000;
@@ -17,6 +18,8 @@ describe('JO | Search Update', ()=>{
         element(by.css('#mobileSearch')).sendKeys('lipsticks');
         const cancelSearchBtn = element(by.css('.mobile-search__clear-btn'))
         expect(hasClass(cancelSearchBtn, 'mobile-search--clear-btn-hidden')).toBe(false)
-        done()
+        cancelSearchBtn.click();
+        expect(hasClass(cancelSearchBtn, 'mobile-search--clear-btn-hidden')).toBe(true);
+        done();
     }, 10000)
 })
